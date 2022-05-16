@@ -1,0 +1,25 @@
+[package]
+name = "flipperbit"
+version = "0.1.0"
+description = "Corrupted files generator. Random bits flipper."
+documentation = "https://github.com/0xor0ne/flipperbit"
+readme = "README.md"
+authors = ["0xor0ne"]
+license = "GPL-3.0-only"
+edition = "2021"
+homepage = "https://github.com/0xor0ne/flipperbit"
+repository = "https://github.com/0xor0ne/flipperbit"
+keywords = ["bit", "fuzzing", "file-manipulation", "flipper", "corruption"]
+categories = ["command-line-utilities"]
+
+[[bin]]
+name = "flipperbit"
+
+[profile.release]
+strip = "symbols"
+# panic = "abort"
+
+[dependencies]
+simple-error = "0.2.3"
+rand = "0.8.5"
+clap = { version = "3.1.18", features = ["derive"] }
