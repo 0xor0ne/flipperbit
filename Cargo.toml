@@ -1,6 +1,6 @@
 [package]
 name = "flipperbit"
-version = "0.1.0"
+version = "0.1.1"
 description = "Corrupted files generator. Random bits flipper."
 documentation = "https://github.com/0xor0ne/flipperbit"
 readme = "README.md"
