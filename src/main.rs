@@ -22,6 +22,11 @@ use std::path::{Path, PathBuf};
 
 use clap::Parser;
 
+#[cfg(target_os = "linux")]
+#[cfg(not(debug_assertions))]
+#[cfg(feature="debugoff")]
+use debugoff;
+
 /// Randomly flip bits in ranges of bytes in a buffer (Vec<u8>).
 mod flipperbit {
     use rand::prelude::*;
@@ -284,6 +289,11 @@ fn parse_range(s: &str) -> Result<flipperbit::FBRange, Box<dyn Error + Send + Sy
 }
 
 fn main() -> io::Result<()> {
+    #[cfg(target_os = "linux")]
+    #[cfg(not(debug_assertions))]
+    #[cfg(feature="debugoff")]
+    debugoff::multi_ptraceme_or_die();
+
     let args = Args::parse();
     let infile = args.infile.unwrap();
     let outdir = args.outdir.unwrap();
@@ -312,6 +322,11 @@ fn main() -> io::Result<()> {
     };
 
     let file_size: usize = f.metadata().unwrap().len() as usize;
+
+    #[cfg(target_os = "linux")]
+    #[cfg(not(debug_assertions))]
+    #[cfg(feature="debugoff")]
+    debugoff::multi_ptraceme_or_die();
 
     println!(
         "Original file: {} (size: {})",

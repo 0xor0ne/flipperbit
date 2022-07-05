@@ -23,3 +23,7 @@ strip = "symbols"
 simple-error = "0.2.3"
 rand = "0.8.5"
 clap = { version = "3.1.18", features = ["derive"] }
+debugoff = { version = "0.1.1", features = ["obfuscate"], optional = true }
+
+[features]
+dbgoff = ["debugoff"]
