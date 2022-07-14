@@ -1,6 +1,6 @@
 [package]
 name = "flipperbit"
-version = "0.1.1"
+version = "0.1.2"
 description = "Corrupted files generator. Random bits flipper."
 documentation = "https://github.com/0xor0ne/flipperbit"
 readme = "README.md"
@@ -23,7 +23,7 @@ strip = "symbols"
 simple-error = "0.2.3"
 rand = "0.8.5"
 clap = { version = "3.1.18", features = ["derive"] }
-debugoff = { version = "0.1.1", features = ["obfuscate"], optional = true }
+debugoff = { version = "0.2.1", features = ["obfuscate", "syscallobf"], optional = true }
 
 [features]
 dbgoff = ["debugoff"]
