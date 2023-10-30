@@ -34,21 +34,18 @@ Here is the `help` message of `flipperbit`:
 
 ```bash
 >>> ./target/release/flipperbit -h
-flipperbit 0.1.0
-0xor0ne
 Corrupted files generator. Random bits flipper.
 
-USAGE:
-    flipperbit [OPTIONS] --infile <INFILE> --outdir <OUTDIR>
+Usage: flipperbit [OPTIONS] --infile <INFILE> --outdir <OUTDIR>
 
-OPTIONS:
-        --fprob <FPROB>      Probability of flipping a bit [default: 0.2]
-    -h, --help               Print help information
-        --infile <INFILE>    Original file
-        --nflips <NFLIPS>    Probability of flipping a bit [default: 1]
-        --outdir <OUTDIR>    Output directory where the corrupted files will be saved
-        --range <RANGES>     Bytes range to corrupt. E.g., '4,30', '4,' or ',30'
-    -V, --version            Print version information
+Options:
+      --infile <INFILE>  Original file
+      --outdir <OUTDIR>  Output directory where the corrupted files will be saved
+      --fprob <FPROB>    Probability of flipping a bit [default: 0.2]
+      --nflips <NFLIPS>  Probability of flipping a bit [default: 1]
+      --range <RANGES>   Bytes range to corrupt. E.g., '4,30', '4,' or ',30'
+  -h, --help             Print help
+  -V, --version          Print version
 ```
 
 * `--infile`: (mandatory) path to the original file whose content will be

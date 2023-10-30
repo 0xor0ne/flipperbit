@@ -15,6 +15,7 @@
 //
 //
 
+use clap::ArgAction;
 use std::error::Error;
 use std::fs::{File, OpenOptions};
 use std::io::{self, Read, Write};
@@ -34,6 +35,7 @@ mod flipperbit {
 
     /// Defines a range of bits that could be flipped
     #[derive(Debug)]
+    #[derive(Clone)]
     pub struct FBRange {
         idx_min: usize,
         idx_max: usize,
@@ -263,7 +265,7 @@ struct Args {
     #[clap(long, default_value_t = 1, help = "Probability of flipping a bit")]
     nflips: usize,
 
-    #[clap(long = "range", parse(try_from_str = parse_range), multiple_occurrences(true),
+    #[clap(long = "range", value_parser = parse_range, action(ArgAction::Append),
            help = "Bytes range to corrupt. E.g., '4,30', '4,' or ',30'")]
     ranges: Vec<flipperbit::FBRange>,
 }
